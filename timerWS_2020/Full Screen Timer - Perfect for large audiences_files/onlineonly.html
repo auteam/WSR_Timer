@@ -1,0 +1,208 @@
+﻿<html manifest="cache.appcache">
+    <head>
+        <title>Online Stopwatch - 404 - Page Not Found</title>
+        <meta name="description" content="Free and easy to use. Works on your computer and mobile device. Adjusts to fill your screen - perfect for classrooms, presentations, and large audiences.">
+        <meta name="keywords" content="online stopwatch free ipad countdown timer"> 
+        <meta name="robots" content="index, follow"> 
+        <meta name="revisit-after" content="2 days"> 
+        <meta name="copyright" content="Copyright &copy; 2012 Luis Perez"> 
+        <meta name="publisher" content="Luis Perez"> 
+        <meta name="Author" content="Luis Perez - Applications Developer"> 
+        <meta name="rating" content="general"> 
+        <meta name="distribution" content="Global"> 
+        <meta name="resource-type" content="document"> 
+        <meta name="owns" content="Luis Perez"> 
+        <!--<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">-->
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="apple-touch-startup-image" media="screen and (orientation: portrait)"  href="/Default.png" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-startup-image" media="screen and (orientation: landscape)"  href="/Default-Landscape.png" />
+        <link rel="apple-touch-icon" href="iphoneicon114.png" />
+        <link rel="apple-touch-icon" sizes="59x59" href="iphoneicon59.png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="iphoneicon72.png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="iphoneicon114.png" />
+        <link rel="apple-touch-icon" sizes="129x129" href="iphoneicon129.png" />
+        <script type="text/javascript">
+            var IsIPhone = false;
+
+            if ('standalone' in navigator && !navigator.standalone && (/iphone|ipod|ipad/gi).test(navigator.platform) && (/Safari/i).test(navigator.appVersion)) {
+                IsIPhone = (/iphone/gi).test(navigator.platform);
+
+                document.title = "Stopwatch";
+
+                var addToHomeConfig = {
+                    startDelay: 5000,
+                    animationIn: 'bubble', 	// Animation In
+                    animationOut: 'drop', 	// Animation Out
+                    lifespan: 5000, 			// The popup lives 10 seconds
+                    expire: 2, 				// The popup is shown only once every 2 minutes
+                    touchIcon: true
+                    //message:'This is a custom message. Your device is an <strong>%device</strong>. The action icon is `%icon`.'
+                };
+
+                document.write('<link rel="stylesheet" href="add2home.css">');
+                document.write('<script type="application\/javascript" src="add2home.js" charset="utf-8"><\/s' + 'cript>');
+            }
+
+            if (IsIPhone) {
+                //document.write('<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">');
+            } else {
+                document.write('<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">');
+            }
+        </script>
+        <script type="text/javascript">
+
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-27797950-3']);
+            _gaq.push(['_setDomainName', 'ipadstopwatch.com']);
+            _gaq.push(['_setAllowLinker', true]);
+            _gaq.push(['_trackPageview']);
+
+            (function () {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+
+        </script>
+        <script type="text/javascript" src="Scripts/jquery-1.4.1.js"></script>
+        <script type="text/javascript" src="Scripts/jquery.cookie.js"></script>
+
+        <style>
+* {
+    font-family:"Lucida Grande", Tahoma, Arial, Verdana, sans-serif;
+}
+
+a {
+    color: #0066cc;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+body {
+    background: white;
+}
+        </style>          
+        <style>
+button {
+    background-color:#f5f5f5;
+    border:1px solid #dedede;
+    border-top:1px solid #eee;
+    border-left:1px solid #eee;
+
+    line-height:130%;
+    text-decoration:none;
+    font-weight:bold;
+    color:#565656;
+    cursor:pointer;
+    
+    width:auto;
+    overflow:visible;
+    padding:4px 10px 3px 7px;
+}
+
+button[type] {
+    padding:5px 10px 5px 7px; /* Firefox */
+    line-height:17px; /* Safari */
+}
+
+*:first-child+html button[type]{
+    padding:4px 10px 3px 7px; /* IE7 */
+}
+
+button.positive {
+    background-color:#E6EFC2;
+    border:1px solid #C6D880;
+    color:#529214;
+}
+
+button.negative{
+    background:#fbe3e4;
+    border:1px solid #fbc2c4;
+    color:#d12f19;
+}
+
+button.regular {
+    background-color:#dff4ff;
+    border:1px solid #c2e1ef;
+    color:#336699;
+}
+        </style>
+        <style type="text/css">
+            .Time {
+                color: #444444;
+            }
+            
+            #Milliseconds {
+                font-size: 33%;
+                font-weight:normal;
+                color: #444444;
+            }
+            
+            .TimeZero {
+                color: #cccccc;
+            }
+            
+            .Seperator {
+                color: #cccccc;
+            }
+            
+            button {
+                font-size: 33%;
+                padding-left: 10px;
+                padding-right: 10px;
+                margin-left: 10px;
+            }
+            
+            h1 {
+                font-size:9pt; /* TODO: Use relative font size??? */
+                font-weight:normal;
+                background: #444444;
+                color: #aaa;
+                display:block;
+                padding: 5px;
+                font-style:italic;
+            }
+            
+            h1 a {
+                font-style:normal;
+                font-size:12pt; /* TODO: Use relative font size??? */
+                text-decoration:none;
+                color:#cccccc;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        </style>
+        <script type="text/javascript">
+            preventScrolling = function (event) {
+                // Prevent scrolling on this element
+                event.preventDefault();
+            }
+        </script>	
+    </head>
+    <body style="margin:0px;">
+        <div style="width:100%;height:100%;" ontouchmove="preventScrolling(event);">
+            <h1><a href="http://www.iPadStopwatch.com">Online Stopwatch - Page Not Found</a></h1>
+
+            <div style="padding:20px;">
+            <p>Sorry but the page you are looking for was not found. Maybe what you're looking found is in one of the links below?</p>
+            <ul>
+                <li><a href="new-year-countdown.html">New Year Countdown</a></li>
+                <li><a href="tax-day-countdown.html">Tax Day Countdown</a></li>
+                <li><a href="end-of-world-countdown.html">End of World Countdown</a></li>
+            </ul>
+
+            </div>
+            <div style="padding-left:30px;">
+                <a href="index.html">Stopwatch</a>
+                <span style="color:gray;margin: 0 4px;">|</span><a href="about.html">About / Contact Me</a>
+                <span style="color:gray;margin: 0 4px;">|</span><a href="timer.html">Timer</a>
+                <span style="color:gray;margin: 0 4px;">|</span> <a href="tax-day-countdown.html">Tax Day Countdown</a>
+                <span style="color:gray;margin: 0 4px;">|</span> <a href="http://timer-timer.com" rel="nofollow">Try Timer Timer!</a>
+            </div>
+        </div>
+    </body>
+</html>
